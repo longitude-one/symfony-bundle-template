@@ -52,6 +52,9 @@ jobs:
       - name: Run test suite on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
         run: vendor/bin/phpunit
 
+      - name: install PHPCSFIXER
+        run: composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+
       - name: PHP-CS-FIXER test on /src with ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
         run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --config=tools/php-cs-fixer/.php-cs-fixer.php
 
