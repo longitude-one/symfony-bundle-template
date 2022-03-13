@@ -1,0 +1,43 @@
+version: '3.6'
+services:
+  php:
+    container_name: "bundle-php"
+    build:
+      context: ./docker/php
+    restart: "no"
+    environment:
+      - APP_SECRET=${APP_SECRET}
+    volumes:
+      - .:/var/www
+  nginx:
+    container_name: "bundle-nginx"
+    build:
+      context: ./docker/nginx
+    restart: "no"
+    volumes:
+      - ./tests/App:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./var/log/nginx:/var/log/nginx
+    depends_on:
+      - php
+    ports:
+      - "8000:80"
+#  yarn:
+#    image: "node:17-alpine"
+#    working_dir: "/var/www/app"
+#    container_name: "bundle-yarn"
+#    environment:
+#      - APP_SECRET=${APP_SECRET}
+#    volumes:
+#      - ./tests/App:/var/www/app
+#    tty: true
+
+#  maildev:
+#    image: maildev/maildev
+#    container_name: "bundle-maildev"
+#    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+#    restart: "no"
+#    ports:
+#      - "8081:80"
+#      - "8025:25"
+#    restart: always
