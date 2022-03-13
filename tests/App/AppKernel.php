@@ -1,7 +1,9 @@
 <?php
+
 namespace LongitudeOne\CookiesConsentBundle\Tests\App;
 
 use Exception;
+use JetBrains\PhpStorm\Pure;
 use LongitudeOne\CookiesConsentBundle\CookiesConsentBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -9,10 +11,7 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class AppKernel extends Kernel
 {
-
-    /**
-     * @inheritDoc
-     */
+    #[Pure]
     public function registerBundles(): iterable
     {
         return [
@@ -22,7 +21,6 @@ class AppKernel extends Kernel
     }
 
     /**
-     * @inheritDoc
      * @throws Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader): void
