@@ -4,7 +4,7 @@
   "type": "bundle",
   "license": "MIT",
   "require": {
-    "php": "7.4|^8.0",
+    "php": "^7.4|^8.0",
     "symfony/http-kernel": "^4.4|^5.4|^6.0"
   },
   "autoload": {
