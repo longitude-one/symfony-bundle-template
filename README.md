@@ -1,4 +1,4 @@
-## Bundle template
+# Bundle template
 
 This package is a bundle template to help you to:
 * create a new bundle 
@@ -8,13 +8,14 @@ This package is a bundle template to help you to:
 * with phpunit function test on this dummy controller (feel free to delete this test)
 * with phpcsfixer deployed as an external tool
 
-# Installation with Docker
+## Installation with Docker
 A very simple docker is embedded to:
 * provide you a PHP8.1 environment
 * provide you composer, symfony and phpcsfixer as external tools
 * launch local symfony server to help you to dev
 
 First, edit the .env file and update the two parameters.
+
 Then simply build your container:
 ````shell
 docker-compose up --build
@@ -46,9 +47,12 @@ If you don't use docker:
 # How to fix your code and add a copyright on your files?
 This package comes with a configured phpcsfixer. The configuration is set to respect the @Symfony rules and add a header
 on your files :)
-First, edit the tools/headers.txt file
-Optionally, edit the tools/php-cs-fixer/.php-cs-fixer.php
-Then, PHP-CS-FIXER is set :)
+
+First, edit the `tools/headers.txt` file.
+
+Optionally, edit the `tools/php-cs-fixer/.php-cs-fixer.php`.
+
+PHP-CS-FIXER is now set :)
 
 ````shell
 docker exec my_bundle-php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --config=tools/php-cs-fixer/.php-cs-fixer.php
