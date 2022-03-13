@@ -30,5 +30,11 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
 WORKDIR /var/www
 
-CMD composer install ;  symfony server:start --dir /var/www/tests/App/public
+## Install our bundle
+## Install PHP-CS-FIXER as an another tools to avoid to complexify our needed dev libraries
+## Start Symfony local server
+CMD composer install ; \
+    composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer; \
+    symfony server:start --dir /var/www/tests/App/public
+
 EXPOSE 8000
