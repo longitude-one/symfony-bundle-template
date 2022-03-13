@@ -2,3 +2,4 @@
 /tests/App/logs
 /var/
 /vendor/
+.phpunit.result.cache
