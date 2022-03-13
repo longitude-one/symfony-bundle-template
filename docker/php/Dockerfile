@@ -30,5 +30,5 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
 WORKDIR /var/www
 
-CMD composer install ;  php-fpm
-EXPOSE 9000
+CMD composer install ;  symfony server:start --dir /var/www/tests/App/public
+EXPOSE 8000
